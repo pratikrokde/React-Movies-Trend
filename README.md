@@ -24,3 +24,7 @@ Trending Movies Web App made with ReactJS, which shows top 20 movies by populari
 ```bash
 npm install
 ```
+
+### Test production before deploy
+
+Check in browser on [http://localhost:3000/](http://localhost:3000/)
