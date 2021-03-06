@@ -20,3 +20,15 @@ export const fetchData = () => async (dispatch, getState) => {
     });
   }
 };
+
+export const sortByRating = () => {
+  return {
+    type: "SORT_BY_RATING",
+  };
+};
+
+export const sortByName = () => {
+  return {
+    type: "SORT_BY_NAME",
+  };
+};

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchData } from "./actions";
+import { fetchData, sortByName, sortByRating } from "./actions";
 import "./App.css";
 import Movies from "./Movies";
 import SearchInput from "./SearchInput";
@@ -14,7 +14,7 @@ const IMGPATH = "https://image.tmdb.org/t/p/w1280";
 const App = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
-  // const [movies, setMovies] = useState([]);
+
   // const [search, setSearch] = useState("");
   // const [queries, setQuery] = useState([search]);
 
@@ -24,14 +24,13 @@ const App = () => {
     dispatch(fetchData());
   }, []);
 
-  //DATA FROM API
-  //old
-  // const getDataFromAPI =async () =>{
-  //   const response = await fetch(MOVIEAPI);
-  //   const data =await response.json();
-  //   // console.log(data.results);
-  //   setMovies(data.results);
-  // }
+  const sortByRatingHandler = () => {
+    dispatch(sortByRating());
+  };
+
+  const sortByNameHandler = () => {
+    dispatch(sortByName());
+  };
 
   const mapMoviesHandler = () => {
     if (state.loading === true) {
@@ -50,8 +49,8 @@ const App = () => {
     <div>
       <div className="header">
         <SortMovies
-        // sortName={sortByNameHandler}
-        // sortRating={sortByRatingHandler}
+          sortName={sortByNameHandler}
+          sortRating={sortByRatingHandler}
         />
         <SearchInput
         //  change={getInputValue} click={submitBtnHandler}
