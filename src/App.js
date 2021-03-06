@@ -6,19 +6,12 @@ import Movies from "./Movies";
 import SearchInput from "./SearchInput";
 import SortMovies from "./SortMovies";
 
-const MOVIEAPI =
-  "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1";
 const IMGPATH = "https://image.tmdb.org/t/p/w1280";
 // const SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=";
 
 const App = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
-
-  // const [search, setSearch] = useState("");
-  // const [queries, setQuery] = useState([search]);
-
-  const [empty, setEmpty] = useState([]);
 
   useEffect(() => {
     dispatch(fetchData());
@@ -56,18 +49,7 @@ const App = () => {
         //  change={getInputValue} click={submitBtnHandler}
         />
       </div>
-      <div className="App">
-        {mapMoviesHandler()}
-
-        {/* {queries.map((query) => (
-          <Movies
-            title={query.title}
-            rating={query.vote_average}
-            image={IMGPATH + query.poster_path}
-            key={query.id}
-          />
-        ))} */}
-      </div>
+      <div className="App">{mapMoviesHandler()}</div>
     </div>
   );
 };
