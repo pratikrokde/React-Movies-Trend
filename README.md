@@ -12,6 +12,7 @@ Trending Movies Web App made with ReactJS, which shows top 20 movies by populari
 
 - ReactJS
 - TMDB API
+- Redux
 
 ### Live at 🌏:
 
